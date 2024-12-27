@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            title: {
+                text: '课程',
+                // subtext: '',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c}节课 ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 22,
+                top: 22,
+                data: ['spark', '习概', '形势与政策', '网络', '数据可视化', '数据标注', 'python机器学习']
+            },
+            toolbox: {
+                show: true,
+                left: 644,
+                top: 28,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                '#fe9f4f', '#feca2b',
+                                '#87ee4a', '#47e4ed', '#4f8fa8',
+                                '#4f68d8', '#26C0C0',
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                name: '访问来源',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        show: true,
+                        position: "inner"
+                    }
+                },
+                data: [{
+                    value: 4,
+                    name: 'spark'
+                }, {
+                    value: 2,
+                    name: '习概'
+                }, {
+                    value: 2,
+                    name: '形势与政策'
+                }, {
+                    value: 4,
+                    name: '网络'
+                }, {
+                    value: 4,
+                    name: '数据可视化'
+                }, {
+                    value: 4,
+                    name: '数据标注'
+                }, {
+                    value: 4,
+                    name: 'python机器学习'
+                }]
+            }, { //上下颜色一样
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                '#fe9f4f', '#feca2b',
+                                '#87ee4a', '#47e4ed', '#4f8fa8',
+                                '#4f68d8', '#26C0C0',
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                name: '访问来源',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        show: true,
+                        position: "left"
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                    value: 4,
+                    name: 'spark'
+                }, {
+                    value: 2,
+                    name: '习概'
+                }, {
+                    value: 2,
+                    name: '形势与政策'
+                }, {
+                    value: 4,
+                    name: '网络'
+                }, {
+                    value: 4,
+                    name: '数据可视化'
+                }, {
+                    value: 4,
+                    name: '数据标注'
+                }, {
+                    value: 4,
+                    name: 'python机器学习'
+                }]
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

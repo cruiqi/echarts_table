@@ -1,0 +1,36 @@
+{
+"RECORDS1":[
+{
+"day_group":"60-89天",
+"SeriousDlqin2yrs":"逾期",
+"num":684
+},
+{
+"day_group":"sum",
+"SeriousDlqin2yrs":"逾期",
+"num":4851
+},
+{
+"day_group":"30-59天",
+"SeriousDlqin2yrs":"逾期",
+"num":4167
+}
+],
+"RECORDS2":[
+    {
+    "day_group":"30-59天",
+    "SeriousDlqin2yrs":"没有逾期",
+    "num":16132
+    },
+    {
+    "day_group":"sum",
+    "SeriousDlqin2yrs":"没有逾期",
+    "num":18088
+    },
+    {
+    "day_group":"60-89天",
+    "SeriousDlqin2yrs":"没有逾期",
+    "num":1956
+    }
+]
+}

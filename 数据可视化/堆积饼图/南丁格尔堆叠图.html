@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        let echartData = {
+            outer: [{
+                value: 3,
+                name: '3',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'red'
+                            }, {
+                                offset: 0.5,
+                                color: 'pink'
+                            }, {
+                                offset: 1,
+                                color: 'black'
+                            }],
+                        )
+                    }
+                }
+            }, {
+                value: 4,
+                name: '4',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#123456',
+                                opacity: 0.6
+                            }, {
+                                offset: 1,
+                                color: 'green',
+                                opacity: 0.5
+                            }],
+                        )
+                    }
+                }
+            }, {
+                value: 5,
+                name: '5',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgb(28,124,151)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(1,1,1,1)'
+                            }],
+                        )
+                    }
+                }
+            }],
+            inner: [{
+                value: 3,
+                name: '鞋子',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            1, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#0CD187'
+                            }, {
+                                offset: 0.5,
+                                color: '#0A8558'
+                            }, {
+                                offset: 1,
+                                color: '#17A26E'
+                            }],
+                        )
+                    }
+                }
+            }, {
+                value: 4,
+                name: '裙子',
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(
+                        1, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#8F9DF6'
+                        }, {
+                            offset: 1,
+                            color: '#5664E9'
+                        }],
+                    )
+                }
+            }, {
+                value: 5,
+                name: '裤子',
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(
+                        1, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#00C7FB'
+                        }, {
+                            offset: 1,
+                            color: '#008AC5'
+                        }],
+                    )
+                }
+            }]
+        }
+        let sum = 0;
+        echartData.outer.forEach((item) => {
+            sum += item.value;
+        })
+        var option = {
+            title: [{
+                text: '总量',
+                top: '56%',
+                left: '50%',
+                textStyle: {
+                    color: '#999',
+                    fontSize: 24,
+                }
+            }, {
+                text: 'sum',
+                top: '51.5%',
+                left: '45%',
+                textStyle: {
+                    color: '#000',
+                    fontSize: 20,
+                }
+            }],
+            series: [{
+                type: 'pie',
+                center: ['55%', '55%'],
+                radius: ['45%', '85%'],
+                roseType: 'area',
+                data: echartData.outer,
+                itemStyle: {
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    position: 'inner'
+                }
+            }, {
+                type: 'pie',
+                center: ['55%', '55%'],
+                radius: ['35%', '60%'],
+                roseType: 'area',
+                data: echartData.inner,
+                itemStyle: {
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    position: 'inner',
+                    rotate: 45
+                }
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crq</title>
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById("crq"));
+
+        var option = {
+            title: {},
+            legend: {
+                left: 'center',
+                data: ['降水量', '蒸发量', '温度'],
+                top: 12
+            },
+            tooltip: {
+                confine: true,
+                enterable: true,
+            },
+            xAxis: {
+                type: 'category',
+                data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: [{
+                type: 'value',
+                name: '降水量/蒸发量(ml)',
+                min: 0,
+                max: 250,
+                intervla: 50,
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }, {
+                type: 'value',
+                name: '温度',
+                min: 0,
+                max: 25,
+                position: 'right',
+                offset: 0,
+                axisLine: {
+                    lineStyle: {
+                        color: 'red'
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            series: [{
+                name: '降水量',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                '#fe9f4f', '#fead33', '#feca2b', '#fed728', '#c5ee4a',
+                                '#87ee4a', '#46eda9', '#47e4ed', '#4bbbee', '#4f8fa8',
+                                '#4586d8', '#4f68d8', '#F4E001', '#F0805A', '#26C0C0',
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                data: [2.6, 5.9, 9, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6, 2.3]
+            }, {
+                name: '蒸发量',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                '#fe9f4f', '#fead33', '#feca2b', '#fed728', '#c5ee4a',
+                                '#87ee4a', '#46eda9', '#47e4ed', '#4bbbee', '#4f8fa8',
+                                '#4586d8', '#4f68d8', '#F4E001', '#F0805A', '#26C0C0',
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                data: [2, 4.9, 7, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20, 6.4, 3.3]
+            }, {
+                name: '温度',
+                type: 'line',
+                stack: '统计',
+                yAxisIndex: 1,
+                data: [2, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23, 16.5, 12, 6.2],
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
+                },
+            }]
+        }
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

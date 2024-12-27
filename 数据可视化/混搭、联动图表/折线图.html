@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crq</title>
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById("crq"))
+        var option = {
+            backgroundColor: 'rgba(128,128,128,0.1)',
+            title: {},
+            legend: {
+                left: 'center',
+                data: ['蒸发量'],
+                top: 12
+            },
+            tooltip: {
+                confine: true,
+                enterable: true,
+            },
+            xAxis: {
+                type: 'category',
+                data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: [{
+                type: 'value',
+                name: '蒸发量(ml)',
+                min: 0,
+                max: 200,
+                // position: 'right',
+                offset: 0,
+                axisLine: {
+                    lineStyle: {
+                        color: 'red'
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            series: [{
+                name: '蒸发量',
+                type: 'line',
+                // yAxisIndex: 1,
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
+                },
+                data: [58, 65, 90, 120, 130, 180, 150, 130, 125, 110, 150, 145]
+            }]
+        }
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

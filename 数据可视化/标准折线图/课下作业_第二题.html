@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+
+    <script>
+        var myChart = echarts.init(document.getElementById("crq"));
+        var option = {
+            backgroundColor: '#eee',
+            title: {
+                text: '会员信息统计表',
+                textStyle: {
+                    color: 'red',
+                },
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['普通会员', 'VIP会员'],
+                left: 'right'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['2016年', '2017年', '2018年']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '普通会员',
+                type: 'line',
+                data: ['7', '0', '0'],
+                smooth: true
+            }, {
+                name: 'VIP会员',
+                type: 'line',
+                data: ['-', '3', '7'],
+                smooth: true
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

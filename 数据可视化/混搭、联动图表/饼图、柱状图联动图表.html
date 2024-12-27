@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_1 {
+            width: 600px;
+            height: 400px;
+            /* background-color: aquamarine; */
+        }
+        
+        #crq_2 {
+            width: 600px;
+            height: 400px;
+            /* background-color: paleturquoise; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_1"></div>
+    <div id="crq_2"></div>
+    <script>
+        var myChart1 = echarts.init(document.getElementById("crq_1"));
+        var option1 = {
+            title: {
+                text: '某大学各专业历年招生情况表',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 62,
+                top: 22,
+                // data: []
+            },
+            toolbox: {
+                show: true,
+                left: 644,
+                top: 28,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                'red', 'Cyan', 'blue', 'green', 'purple'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                name: '总人数',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        show: true,
+                        position: "left"
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: true
+                    }
+                },
+                data: [{
+                    value: 1695,
+                    name: '2016'
+                }, {
+                    value: 1790,
+                    name: '2017'
+                }, {
+                    value: 2250,
+                    name: '2018'
+                }, {
+                    value: 2550,
+                    name: '2019'
+                }, {
+                    value: 2570,
+                    name: '2020'
+                }]
+            }]
+        };
+        myChart1.setOption(option1);
+
+        var myChart2 = echarts.init(document.getElementById("crq_2"))
+        var option2 = {
+            legend: {
+                left: 'center',
+                // data: [],
+                top: 12
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                data: ['2016', '2017', '2018', '2019', '2020']
+            },
+            yAxis: {},
+            series: [{
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
+                },
+                barWidth: '40',
+                name: '大数据',
+                type: 'bar',
+                stack: '统计',
+                data: [301, 334, 390, 330, 320]
+            }, {
+                name: 'Oracle',
+                type: 'bar',
+                stack: '统计',
+                data: [101, 134, 90, 230, 210],
+                itemStyle: {
+                    normal: {
+                        color: 'Cyan'
+                    }
+                },
+            }, {
+                name: '云计算',
+                type: 'bar',
+                stack: '统计',
+                data: [191, 234, 290, 330, 310],
+                itemStyle: {
+                    normal: {
+                        color: 'blue'
+                    }
+                },
+            }, {
+                name: '人工智能',
+                type: 'bar',
+                stack: '统计',
+                data: [201, 154, 190, 330, 410],
+                itemStyle: {
+                    normal: {
+                        color: 'green'
+                    }
+                },
+            }, {
+                name: '软件工程',
+                type: 'bar',
+                stack: '统计',
+                data: [90, 934, 1290, 1330, 1320],
+                itemStyle: {
+                    normal: {
+                        color: 'purple'
+                    }
+                },
+            }]
+        };
+        myChart2.setOption(option2);
+        myChart1.group = 'group1';
+        myChart2.group = 'group1';
+        echarts.connect('group1');
+    </script>
+</body>
+
+</html>

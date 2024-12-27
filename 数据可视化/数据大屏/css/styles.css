@@ -1,0 +1,90 @@
+#crq_sz {
+    /* background-color: rgb(131, 248, 221); */
+    width: 1560px;
+    height: 50px;
+    font-family: 微软雅黑;
+    font-size: 30px;
+    /* border: 10px solid rgba(225, 243, 137, 0.858); */
+    text-align: center;
+    color: #FF5733;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(21, 234, 9, 0.5);
+}
+        
+/* 最大的盒子 */
+#crq_big {
+    width: 1560px;
+    height: 1700px;
+    border: 10px solid rgba(237, 200, 251, 0.858);
+    /* background-color: aquamarine; */
+    }
+        
+#crq_1 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: antiquewhite; */
+    float: left;
+    }
+        
+#crq_2 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: greenyellow; */
+    float: left;
+    }
+    
+#crq_3 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: palevioletred; */
+    float: left;
+}
+        
+#crq_4 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: antiquewhite; */
+    float: left;
+    }
+        
+#crq_5 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: greenyellow; */
+    float: left;
+}
+        
+#crq_6 {
+    width: 500px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: palevioletred; */
+    float: left;
+}
+#crq_7 {
+    width: 760px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: palevioletred; */
+    float: left;
+}
+#crq_8 {
+    width: 760px;
+    height: 400px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: rgb(210, 12, 12); */
+    float: left;
+}
+        
+#crq_9 {
+    width: 1540px;
+    height: 430px;
+    border: 10px solid rgba(12, 224, 210, 0.858);
+    /* background-color: wheat; */
+    float: left;
+}        

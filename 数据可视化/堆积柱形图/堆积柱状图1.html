@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq1 {
+            width: 600px;
+            height: 400px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq1"></div>
+    <script type="text/javascript">
+        var myChat = echarts.init(document.getElementById("crq1"))
+        var option = {
+            title: {
+                text: '文具店销售',
+                subtext: 'xxx文具店',
+                padding: [10, 0, 100, 250]
+            },
+            xAxis: {
+                data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            yAxis: {},
+            series: [{
+                type: 'bar',
+                stack: '文具',
+                data: [45, 34, 56, 67, 89, 90, 3]
+            }, {
+                type: 'bar',
+                stack: '文具',
+                data: [44, 43, 52, 64, 85, 41, 25]
+            }, {
+                type: 'bar',
+                stack: '文具',
+                data: [24, 53, 32, 44, 55, 91, 55]
+            }]
+        }
+        myChat.setOption(option);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crq</title>
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById("crq"))
+        var color1 = [
+            [0.2, "rgba(255,0,0,1)"],
+            [0.8, "rgba(0,255,255,1)"],
+            [1, "rgba(0,255,0,1)"]
+        ];
+        var data1 = [{
+            name: "完成率(%)",
+            value: 50,
+        }];
+        var option = {
+            backgroundColor: 'rgba(128, 128, 128, 0.1)',
+            tooltip: {
+                show: true,
+                formatter: "{b}:{c}%",
+                backgroundColor: "rgba(255,0,0,0.8)",
+                borderColor: "#333",
+                borderWidth: 0,
+                padding: 5,
+                textStyle: {
+                    //color,fontStyle,fontWeight,fontFamily,fontSize,lineHeight
+                }
+            },
+            title: {
+                text: '项目实际完成率(%)',
+                x: "center",
+                y: 25,
+                show: true,
+                offsetCenter: [50, "20%"],
+                textStyle: {
+                    fontFamily: "黑体",
+                    color: "blue",
+                    fontSize: 20,
+                }
+            },
+            series: [{
+                name: '单仪表盘示例',
+                type: 'gauge',
+                radius: "80%",
+                center: ["50%", "55%"],
+                startAngle: 225,
+                endAngle: -45,
+                clockwise: true,
+                min: 0,
+                max: 100,
+                splitNumber: 10,
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: color1,
+                        opacity: 1,
+                        width: 30,
+                        shadowBlur: 20,
+                        shadowColor: "#fff",
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    length: 30,
+                    lineStyle: {
+                        color: "#eee",
+                        opacity: 1,
+                        width: 2,
+                        type: "solid",
+                        shadowBlur: 10,
+                        shadowColor: "#fff",
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    splitNumber: 5,
+                    length: 8,
+                    lineStyle: {
+                        color: "#eee",
+                        opacity: 1,
+                        width: 1,
+                        type: "solid",
+                        shadowBlur: 10,
+                        shadowColor: "#fff",
+                    },
+                },
+                axisLabel: {
+                    show: true,
+                    distance: 25,
+                    color: "blue",
+                    fontSize: 32,
+                    formatter: "{value}",
+                },
+                pointer: {
+                    show: true,
+                    length: "70%",
+                    width: 9,
+                },
+                itemStyle: {
+                    color: "auto",
+                    opacity: 1,
+                    borderWidth: 0,
+                    borderColor: "#000",
+                    shadowBlur: 10,
+                    shadowColor: "#fff",
+                },
+                emphasis: {
+                    itemStyle: {}
+                },
+                detail: {
+                    show: true,
+                    offsetCenter: [0, "50%"],
+                    color: "auto",
+                    fontSize: 30,
+                    formatter: "{value}%",
+                },
+                data: data1
+            }]
+        };
+        setInterval(function() {
+            option.series[0].data[0].value = (Math.random() * 100).toFixed(2);
+            myChart.setOption(option, true);
+        }, 2000)
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

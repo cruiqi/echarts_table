@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>242crq</title>
+    <style>
+        #crq242 {
+            width: 1200px;
+            height: 600px;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq242"></div>
+    <script>
+        var myChat = echarts.init(document.getElementById('crq242'))
+        var option = {
+            // backgroundColor: 'aquamarine',
+            color: ['red', 'green', 'blue'],
+            title: {
+                x: 33,
+                text: '销售任务完成情况',
+                subtext: '作业第三题',
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            toolbox: {
+                x: 900,
+                show: true,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataZoom: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            legend: {
+                data: ['王斌', '刘倩', '袁波']
+            },
+            xAxis: [{
+                type: 'value',
+                scale: true,
+                axisLabel: {
+                    formatter: '客户总数{value}'
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                scale: true,
+                axisLabel: {
+                    formatter: '销售额：{value}'
+                }
+            }],
+            series: [{
+                name: '王斌',
+                type: 'scatter',
+                symbolSize: 8,
+                data: [
+                    [468, 3134352.75],
+                    [1547, 8150670.62],
+                    [748, 4677846.24],
+                    [601, 4234075.23]
+                ]
+            }, {
+                name: '刘倩',
+                type: 'scatter',
+                symbolSize: 8,
+                data: [
+                    [2059, 9903786.32],
+                    [429, 2657902.04],
+                    [1012, 5128837.07],
+                    [561, 3954075.17]
+                ]
+            }, {
+                name: '袁波',
+                type: 'scatter',
+                symbolSize: 8,
+                data: [
+                    [422, 2290201.87],
+                    [1188, 6193413.66],
+                    [367, 1695026.60],
+                    [1232, 6736514.25]
+                ],
+            }]
+        }
+        myChat.setOption(option);
+    </script>
+</body>
+
+</html>

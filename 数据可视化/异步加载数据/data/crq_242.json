@@ -1,0 +1,24 @@
+{
+    "data_pie": [{
+        "value": 4,
+        "name": "spark"
+    }, {
+        "value": 2,
+        "name": "习概"
+    }, {
+        "value": 2,
+        "name": "形势与政策"
+    }, {
+        "value": 4,
+        "name": "网络"
+    }, {
+        "value": 4,
+        "name": "数据可视化"
+    }, {
+        "value": 4,
+        "name": "数据标注"
+    }, {
+        "value": 4,
+        "name": "python机器学习"
+    }]
+}

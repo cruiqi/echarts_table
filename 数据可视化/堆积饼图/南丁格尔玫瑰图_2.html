@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            title: {
+                text: '南丁格尔玫瑰图',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                // data: ['大数据', '云计算', '网络', '机器人', '艺术']
+            },
+            toolbox: {
+                show: true,
+                left: 600,
+                top: 18,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                name: '数据分布',
+                type: 'pie',
+                roseType: 'area',
+                radius: ['30%', '55%'],
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{c}\n\n',
+                        padding: [0, -30],
+                    }
+                },
+                labelLine: {
+                    show: true,
+                    normal: {
+                        length: 10,
+                        length2: 50,
+                    }
+                },
+                label: {
+                    formatter: "{per|{d}%}{b|{b}}\n\n",
+                    borderWidth: 20,
+                    borderRadius: 4,
+                    padding: [0, -50],
+                    rich: {
+                        b: {
+                            color: "#000",
+                            fontSize: 12,
+                            lineHeight: 33
+                        },
+                        per: {
+                            fontSize: 12,
+                            padding: [2, 4],
+                            borderRadius: 2
+                        }
+                    }
+                },
+                itemStyle: {
+                    shadowBlur: 200,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: '#33ffff'
+                },
+                data: [{
+                    value: 900,
+                    name: '大数据'
+                }, {
+                    value: 800,
+                    name: '云计算'
+                }, {
+                    value: 700,
+                    name: '网络'
+                }, {
+                    value: 600,
+                    name: '机器人'
+                }, {
+                    value: 500,
+                    name: '艺术'
+                }].sort(function(a, b) {
+                    return a.value - b.value
+                })
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

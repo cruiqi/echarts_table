@@ -1,0 +1,29 @@
+{
+    "list":[
+        {
+            "department":"和平区",
+            "num":480,
+            "ber":200
+        },
+        {
+            "department":"河西区",
+            "num":380,
+            "ber":460
+        },
+        {
+            "department":"河东区",
+            "num":366,
+            "ber":223
+        },
+{
+            "department":"河北区",
+            "num":320,
+            "ber":210
+        },
+{
+            "department":"南开区",
+            "num":300,
+            "ber":200
+        }
+    ]
+}

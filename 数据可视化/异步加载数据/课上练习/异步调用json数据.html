@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChart = echarts.init(document.getElementById("crq_242"));
+        // myChart.showLoading();
+        $.get("../data/crq_242.json").done(function(data) {
+            myChart.setOption({
+                color: ['red', 'blue', 'LimeGreen', 'Teal', 'Purple', 'Olive', '#87ee4a'],
+                backgroundColor: 'rgba(128,128,128,0.1)',
+                //
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}节课 ({d}%)'
+                },
+                title: {
+                    text: '课程',
+                    left: 'center'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 22,
+                    top: 22,
+                    data: ['spark', '习概', '形势与政策', '网络', '数据可视化', '数据标注', 'python机器学习']
+                },
+                series: [{
+                    name: '访问来源',
+                    type: 'pie',
+                    label: {
+                        normal: {
+                            formatter: '{b}',
+                            show: true,
+                            position: "left"
+                        }
+                    },
+                    radius: ['45%', '75%'],
+                    center: ['50%', '58%'],
+                    data: data.data_pie
+                }]
+            })
+        });
+    </script>
+</body>
+
+</html>

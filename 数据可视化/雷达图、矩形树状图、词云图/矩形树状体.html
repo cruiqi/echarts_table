@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/echarts-wordcloud.min.js"></script>
+</head>
+
+<body>
+    <div id="crq_242" style="height: 400px;width: 600px;">
+        <script>
+            function getLevelOption() {
+                return [{
+                    itemStyle: {
+                        borderWidth: 0,
+                        gapWidth: 5
+                    }
+                }, {
+                    itemStyle: {
+                        gapWidth: 1
+                    }
+                }, {
+                    colorSaturation: [0.35, 0.5],
+                    itemStyle: {
+                        gapwidth: 1,
+                        borderColorSaturation: 0.6
+                    }
+                }];
+            }
+            var mychart = echarts.init(document.getElementById("crq_242"))
+            var option = {
+                title: {
+                    text: '矩形树图',
+                    top: 15,
+                    textStyle: {
+                        color: 'green'
+                    },
+                    left: 270
+                },
+                series: [{
+                    name: '全部',
+                    type: 'treemap',
+                    levels: getLevelOption(),
+                    data: [{
+                        name: '1部门',
+                        value: 24,
+                        children: [{
+                            name: '黄著',
+                            value: 2
+                        }, {
+                            name: '刘旺坚',
+                            value: 4
+                        }, {
+                            name: '李文科',
+                            value: 10
+                        }, {
+                            name: '蔡明朗',
+                            value: 8
+                        }]
+                    }, {
+                        name: '2部门',
+                        value: 16,
+                        children: [{
+                            name: '胡斌彬',
+                            value: 3
+                        }, {
+                            name: '廖舒婷',
+                            value: 7
+                        }, {
+                            name: '楚玉莹',
+                            value: 6
+                        }]
+                    }, {
+                        name: '3部门',
+                        value: 10,
+                        children: [{
+                            name: '刘俊权',
+                            value: 4
+                        }, {
+                            name: '古旭高',
+                            value: 6
+                        }]
+                    }]
+                }]
+            }
+            mychart.setOption(option)
+        </script>
+    </div>
+</body>
+
+</html>

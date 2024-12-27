@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            title: {
+                text: '天气',
+                subtext: '天气',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 62,
+                top: 22,
+                data: ['风', '低云', '雪', '冰雨', '积冰', '颠簸', '能见度', '雷雨']
+            },
+            toolbox: {
+                show: true,
+                left: 644,
+                top: 28,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                name: '访问来源',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        show: true,
+                        position: "inner"
+                    }
+                },
+                data: [{
+                    value: 13.62,
+                    name: '风'
+                }, {
+                    value: 13.62,
+                    name: '低云'
+                }, {
+                    value: 9.54,
+                    name: '雪'
+                }, {
+                    value: 8.43,
+                    name: '冰雨'
+                }, {
+                    value: 7.42,
+                    name: '积冰'
+                }, {
+                    value: 7.42,
+                    name: '颠簸'
+                }, {
+                    value: 16.54,
+                    name: '能见度'
+                }, {
+                    value: 23.35,
+                    name: '雷雨'
+                }]
+            }, {
+                name: '访问来源',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        show: true,
+                        position: "left"
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                    value: 13.62,
+                    name: '风'
+                }, {
+                    value: 13.62,
+                    name: '低云'
+                }, {
+                    value: 9.54,
+                    name: '雪'
+                }, {
+                    value: 8.43,
+                    name: '冰雨'
+                }, {
+                    value: 7.42,
+                    name: '积冰'
+                }, {
+                    value: 7.42,
+                    name: '颠簸'
+                }, {
+                    value: 16.54,
+                    name: '能见度'
+                }, {
+                    value: 23.35,
+                    name: '雷雨'
+                }]
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

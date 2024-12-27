@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crq</title>
+    <style>
+        #crq {
+            width: 600px;
+            height: 400px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById("crq"))
+        var option = {
+            backgroundColor: 'rgba(204,204,204,0.7)',
+            title: {
+                text: '各教育阶段男女人数统计',
+                target: 'blank',
+                top: '10',
+                left: '160',
+                textStyle: {
+                    color: 'black',
+                    fontSize: 18,
+                }
+            },
+            legend: {
+                show: true,
+                icon: 'rect',
+                top: '14',
+                left: 430,
+                itemWidth: 10,
+                itemHeight: 10,
+                itemGap: 30,
+                orient: 'horizontal',
+                textStyle: {
+                    fontSize: 15,
+                    color: '#fff'
+                },
+                data: [{
+                    name: '男',
+                    icon: 'rect',
+                    textStyle: {
+                        color: 'rgba(255,0,0,1)',
+                        fontWeight: 'bold'
+                    }
+                }, {
+                    name: '女',
+                    icon: 'rect',
+                    textStyle: {
+                        color: 'rgba(255,0,0,1)',
+                        fontWeight: 'bold'
+                    }
+                }],
+            },
+            tooltip: {
+                confine: true,
+                enterable: true,
+            },
+            radar: [{
+                center: ['50%', '56%'],
+                radius: 160,
+                startAngle: 90,
+                name: {
+                    formatter: '{value}',
+                    textStyle: {
+                        fontSize: 15,
+                        color: '#000'
+                    }
+                },
+                nameGap: 2,
+                splitNumber: 2,
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff',
+                        width: 1,
+                        type: 'solid',
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    areaStyle: {
+                        color: '#fff',
+                        width: 1,
+                    }
+                },
+                splitArea: {
+                    show: true,
+                    areaStyle: {
+                        color: ['#abc', '#abc', '#abc', '#abc']
+                    }
+                },
+                indicator: [{
+                    name: '高中',
+                    max: 9000000
+                }, {
+                    name: '专科',
+                    max: 5000000
+                }, {
+                    name: '本科',
+                    max: 3500000
+                }, {
+                    name: '硕士',
+                    max: 800000
+                }, {
+                    name: '博士',
+                    max: 20000
+                }]
+            }],
+            series: [{
+                name: '雷达图',
+                type: 'radar',
+                symbol: 'triangle',
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            width: 1
+                        },
+                        opacity: 0.2
+                    },
+                    emphasis: {
+                        lineStyle: {
+                            width: 5
+                        },
+                        opacity: 1
+                    }
+                },
+                data: [{
+                    name: '女',
+                    value: [4400000, 2700000, 1600000, 380000, 7000],
+                    symbol: 'triangle',
+                    itemStyle: {
+                        normal: {
+                            borderColor: 'blue',
+                            borderWidth: 3
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: 'red',
+                            width: 1,
+                            opacity: 0.9
+                        }
+                    },
+                }, {
+                    name: '男',
+                    value: [4600000, 2300000, 1900000, 420000, 13000],
+                    symbol: 'circle',
+                    symbolSize: 5,
+                    itemStyle: {
+                        normal: {
+                            borderColor: 'rgba(51,0,255,1)',
+                            borderWidth: 3
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: 'blue',
+                            width: 1,
+                            opacity: 0.9
+                        }
+                    }
+                }]
+            }]
+        }
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

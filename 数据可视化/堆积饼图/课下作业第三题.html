@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            title: {
+                text: '会员信息表',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+            },
+            series: [{
+                name: '数据分布',
+                type: 'pie',
+                roseType: 'area',
+                radius: ['30%', '55%'],
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{c}\n\n',
+                        padding: [0, -30],
+                    }
+                },
+                labelLine: {
+                    show: true,
+                    normal: {
+                        length: 10,
+                        length2: 50,
+                    }
+                },
+                label: {
+                    formatter: "{per|{d}%}{b|{b}}\n\n",
+                    borderWidth: 20,
+                    borderRadius: 4,
+                    padding: [0, -50],
+                    rich: {
+                        b: {
+                            color: "#000",
+                            fontSize: 12,
+                            lineHeight: 33
+                        },
+                        per: {
+                            fontSize: 12,
+                            padding: [2, 4],
+                            borderRadius: 2
+                        }
+                    }
+                },
+                itemStyle: {
+                    shadowBlur: 200,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: 'pink'
+                },
+                data: [{
+                    value: 4,
+                    name: '节日活动'
+                }, {
+                    value: 3,
+                    name: '团购促销'
+                }, {
+                    value: 2,
+                    name: '微信推广'
+                }, {
+                    value: 5,
+                    name: '自愿'
+                }].sort(function(a, b) {
+                    return a.value - b.value
+                })
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

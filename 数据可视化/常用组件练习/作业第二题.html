@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq {
+            width: 1000px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq"));
+        var option = {
+            title: {
+                text: '永年未来12天内气温变化',
+                subtext: '数据来源自百度',
+                textStyle: {
+                    color: 'red',
+                },
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['最高气温','最低气温'],
+                left: 'right'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['4月23日', '4月24日', '4月25日', '4月26日', '4月27日', '4月28日', '4月29日', '4月30日', '5月1日', '5月2日', '5月3日', '5月4日']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '最高气温',
+                type: 'line',
+                smooth: 'true',
+                lineStyle: {
+                    normal: {
+                        color: 'red',
+                        width: 2
+                    }
+                },
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: [22, 28, 30, 30, 28, 28, 27, 22, 25, 27, 28, 29]
+            }, {
+                name: '最低气温',
+                type: 'line',
+                smooth: 'true',
+                lineStyle: {
+                    normal: {
+                        color: 'green',
+                        width: 2
+                    }
+                },
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: [9, 13, 17, 18, 18, 17, 17, 13, 13, 14, 15, 17]
+            }]
+        };
+        myChat.setOption(option);
+    </script>
+</body>
+
+</html>

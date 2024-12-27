@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq1 {
+            width: 1400px;
+            height: 400px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq1"></div>
+    <script type="text/javascript">
+        var myChat = echarts.init(document.getElementById("crq1"))
+        var option = {
+            title: {
+                text: '2019年商品销售情况表',
+                subtext: '商品销售数量情况表',
+                left: '45%'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['笔记本', '电视机', '电冰箱'],
+                bottom: '1%'
+            },
+            xAxis: {
+                data: ['2019年1月', '2019年2月', '2019年3月', '2019年4月', '2019年5月', '2019年6月', '2019年7月', '2019年8月', '2019年9月', '2019年10月', '2019年11月', '2019年12月']
+            },
+            yAxis: {},
+            series: [{
+                name: '笔记本',
+                type: 'bar',
+                data: [67.2, 141.6, 103.2, 93.6, 87.6, 80.4, 79.2, 76.8, 55.2, 50.4, 34.8, 25.2]
+            }, {
+                name: '电视机',
+                type: 'bar',
+                data: [67, 62, 83.5, 56, 48, 42, 36.5, 46, 44.5, 28, 27, 21]
+            }, {
+                name: '电冰箱',
+                type: 'bar',
+                data: [31.68, 29.37, 29.04, 27.72, 24.75, 21.45, 14.85, 10.56, 17.49, 20.13, 18.48, 11.22, ]
+            }]
+        }
+        myChat.setOption(option);
+    </script>
+
+</body>
+
+</html>

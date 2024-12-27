@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq242 {
+            width: 1000px;
+            height: 600px;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq242"></div>
+    <a>红色标记点为最大值,黑色标记线为最小值</a>
+    <script>
+        var myChat = echarts.init(document.getElementById('crq242'))
+        var option = {
+            // backgroundColor: 'aquamarine',
+            title: {
+                text: '销售经理能力考核',
+                subtext: '数据来自Excel表',
+            },
+            toolbar: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+                formatter: function(params) {
+                    var tar = params[0];
+                    return tar.name + '<br/>' + tar.seriesName + ':' + tar.value;
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    },
+                }
+            },
+            legend: {},
+            xAxis: {
+                type: 'category',
+                axisLabel: {
+                    show: true,
+                    interval: 'auto',
+                    rotate: 5,
+                    margin: 8,
+                    textStyle: {
+                        color: 'blue',
+                        fontSize: 15,
+                        fontStyle: 'italic',
+                        fontWeight: 'bold'
+                    }
+                },
+                splitArea: {
+                    show: true,
+                    areaStyle: {
+                        color: ['rgba(144,238,144,0.3)', 'rgba(135,200,250,0.3)']
+                    }
+                },
+                data: ['王斌', '刘倩', '袁波']
+            },
+            yAxis: {
+                // splitArea: {
+                //     show: true,
+                //     areaStyle: {
+                //         color: ['rgba(205,92,92,0.3)', 'rgba(255,215,0,0.3)']
+                //     }
+                // }
+            },
+            series: [{
+                name: '销售',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['87.50', '90.00', '92.50']
+            }, {
+                name: '沟通',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['87.50', '88.75', '91.25']
+            }, {
+                name: '服务',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['90.00 ', '85.00 ', '88.75']
+            }, {
+                name: '协作',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['91.25 ', '87.50', '92.50']
+            }, {
+                name: '培训',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['85.00', '88.75', '91.25']
+            }, {
+                name: '组织',
+                type: 'bar',
+                markLine:{
+                    data: [ {
+                        type: 'min',
+                        name: '最小值',
+                        itemStyle:{
+                            normal:{color:'black'}
+                        }
+                    }]
+                },
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值',
+                        itemStyle:{
+                            normal:{color:'red'}
+                        }
+                    }]
+                },
+                data: ['87.50', '91.25', '88.75']
+            }]
+        };
+        myChat.setOption(option);
+    </script>
+</body>
+
+</html>

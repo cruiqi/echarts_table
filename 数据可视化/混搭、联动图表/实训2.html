@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_1 {
+            width: 600px;
+            height: 400px;
+            /* background-color: aquamarine; */
+        }
+        
+        #crq_2 {
+            width: 600px;
+            height: 400px;
+            /* background-color: paleturquoise; */
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_1"></div>
+    <div id="crq_2"></div>
+    <script>
+        var myChart1 = echarts.init(document.getElementById("crq_1"));
+        var option1 = {
+            title: {
+                text: '咖啡店各年订单分析',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 22,
+                top: 22,
+                // data: []
+            },
+            toolbox: {
+                show: true,
+                left: 644,
+                top: 28,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var colorList = [
+                                'red', 'Cyan', 'pink',
+                                'blue', 'green', 'purple'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                    }
+                },
+                name: '订单',
+                type: 'pie',
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        show: true,
+                        position: "left"
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: true
+                    }
+                },
+                data: [{
+                    "value": 172.9,
+                    "name": "2012年"
+                }, {
+                    "value": 232.8,
+                    "name": "2013年"
+                }, {
+                    "value": 254.5,
+                    "name": "2014年"
+                }, {
+                    "value": 177.8,
+                    "name": "2015年"
+                }, {
+                    "value": 206.3,
+                    "name": "2016年"
+                }, {
+                    "value": 235.4,
+                    "name": "2017年"
+                }],
+            }]
+        };
+        myChart1.setOption(option1);
+
+        var myChart2 = echarts.init(document.getElementById("crq_2"))
+        var option2 = {
+            backgroundColor: 'rgba(128,128,128,0.1)',
+            title: {},
+            legend: {
+                left: 'center',
+                // data: [''],
+                top: 12
+            },
+            tooltip: {
+                confine: true,
+                enterable: true,
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: ["2012年", "2013年", "2014年", "2015年", "2016年", "2017年"]
+            },
+            yAxis: [{
+                type: 'value',
+                name: '销量',
+                min: 0,
+                max: 100,
+                // position: 'right',
+                offset: 0,
+                axisLine: {
+                    lineStyle: {
+                        color: 'pink'
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            series: [{
+                name: "Milk Tea",
+                type: 'line',
+                itemStyle: {
+                    normal: {
+                        color: 'green'
+                    }
+                },
+                data: [56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+            },{
+                name: "Matcha Latte",
+                type: 'line',
+                itemStyle: {
+                    normal: {
+                        color: 'blue'
+                    }
+                },
+                data: [51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+            },{
+                name: "Cheese Cocoa",
+                type: 'line',
+                itemStyle: {
+                    normal: {
+                        color: 'black'
+                    }
+                },
+                data: [40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
+            },{
+                name: "Walnut Brownie",
+                type: 'line',
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
+                },
+                data: [25.2, 37.1, 41.2, 18, 33.9, 49.1],
+            }]
+        };
+        myChart2.setOption(option2);
+        myChart1.group = 'group1';
+        myChart2.group = 'group1';
+        echarts.connect('group1');
+    </script>
+</body>
+
+</html>

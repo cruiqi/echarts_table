@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>242crq</title>
+    <style>
+        #crq242 {
+            width: 1000px;
+            height: 600px;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq242"></div>
+    <script>
+        var myChat = echarts.init(document.getElementById('crq242'))
+        var option = {
+            // backgroundColor: 'aquamarine',
+            color: ['red', 'green'],
+            title: {
+                x: 33,
+                text: '涟漪散点图',
+                // subtext: '',
+            },
+            toolbox: {
+                x: 900,
+                show: true,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataZoom: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            legend: {
+                data: ['一般值', '极值']
+            },
+            xAxis: [{
+                scale: true,
+            }],
+            yAxis: [{
+                scale: true,
+            }],
+            series: [{
+                name: '极值',
+                type: 'effectScatter',
+                silent: false,
+                legendHoverLink: false,
+                effectType: 'ripple',
+                showEffecton: 'render',
+                rippleEffect: {
+                    period: 2,
+                    scale: 5.5,
+                    brushType: 'fill',
+                },
+                symbolSize: 20,
+                color: 'pink',
+                data: [
+                    [181.7, 110],
+                    [156.4, 42]
+                ]
+            }, {
+                name: '一般值',
+                type: 'scatter',
+                color: 'green',
+                data: [
+                    [174, 65.6],
+                    [175.3, 71.8],
+                    [163.5, 80],
+                    [186.5, 72.6],
+                    [180.2, 78.8],
+                    [167, 64.6],
+                    [177.8, 74.8],
+                    [164.5, 70],
+                    [180, 101.6],
+                    [165.5, 63.2],
+                    [171.2, 79.1],
+                    [180.6, 78.9],
+                    [167.4, 67.7],
+                    [180.1, 66],
+                    [177, 68.2],
+                    [161.5, 74.8],
+                    [164.0, 86.4],
+                    [164.5, 78.4],
+                    [175, 62],
+                    [164, 81.6]
+                ],
+            }]
+
+        }
+        myChat.setOption(option);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            title: {
+                text: '影响健康、寿命的各类因素',
+                subtext: 'WHO统计调查报告',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 62,
+                top: 22,
+                data: ['生活方式', '遗传因素', '社会因素', '医疗条件', '气候环境']
+            },
+            toolbox: {
+                show: true,
+                left: 644,
+                top: 28,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                name: '访问来源',
+                type: 'pie',
+                radius: ['30%', '80%'],
+                clockWise: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        show: true,
+                        position: "left"
+                    }
+                },
+                data: [{
+                    value: 60,
+                    name: '生活方式'
+                }, {
+                    value: 15,
+                    name: '遗传因素'
+                }, {
+                    value: 10,
+                    name: '社会因素'
+                }, {
+                    value: 8,
+                    name: '医疗条件'
+                }, {
+                    value: 7,
+                    name: '气候环境'
+                }, ]
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

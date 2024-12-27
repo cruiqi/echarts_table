@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq242 {
+            width: 800px;
+            height: 600px;
+            /* background-color: wheat; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq242"></div>
+    <script>
+        var myChat = echarts.init(document.getElementById("crq242"));
+        var option = {
+            title: {
+                text: '2021年到2024年各专业招生情况'
+            },
+            legend: {
+                data: ['2021年', '2022年', '2023年', '2024年'],
+                top: 20
+            },
+            xAxis: {
+                data: ['大数据', '云开发', '电气', '机电', '汽车', '营销']
+            },
+            yAxis: {},
+            series: [{
+                name: '2021年',
+                type: 'bar',
+                data: [315, 98, 122, 396, 615, 278]
+            }, {
+                name: '2022年',
+                type: 'bar',
+                data: [332, 123, 222, 494, 625, 369]
+            }, {
+                name: '2023年',
+                type: 'bar',
+                data: [362, 201, 373, 524, 629, 402]
+            }, {
+                name: '2024年',
+                type: 'bar',
+                data: [370, 209, 387, 551, 643, 437]
+            }]
+        }
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

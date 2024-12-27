@@ -1,0 +1,26 @@
+{
+"RECORDS1":[
+{
+"jiaShu":"有家属",
+"SeriousDlqin2yrs":"没有逾期",
+"num":58167
+},
+{
+"jiaShu":"无家属",
+"SeriousDlqin2yrs":"没有逾期",
+"num":81807
+}
+],
+"RECORDS2":[
+    {
+    "jiaShu":"有家属",
+    "SeriousDlqin2yrs":"逾期",
+    "num":4931
+    },
+    {
+    "jiaShu":"无家属",
+    "SeriousDlqin2yrs":"逾期",
+    "num":5095
+    }
+    ]
+}

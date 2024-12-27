@@ -1,0 +1,26 @@
+{
+"RECORDS1":[
+{
+"fangChan":"无房产抵押",
+"SeriousDlqin2yrs":"没有逾期",
+"num":51516
+},
+{
+"fangChan":"无房产抵押",
+"SeriousDlqin2yrs":"逾期",
+"num":4672
+}
+],
+"RECORDS2":[
+    {
+    "fangChan":"房产抵押",
+    "SeriousDlqin2yrs":"没有逾期",
+    "num":88458
+    },
+    {
+    "fangChan":"房产抵押",
+    "SeriousDlqin2yrs":"逾期",
+    "num":5354
+    }
+]
+}

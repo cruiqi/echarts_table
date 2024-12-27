@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #crq_242 {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="crq_242"></div>
+
+    <script>
+        var myChat = echarts.init(document.getElementById("crq_242"));
+        var option = {
+            // backgroundColor: '#eee',
+            title: {
+                text: '中午饭的营养分布'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                data: ['米饭', '土豆', '红烧肉','水']
+            },
+            calculable: true,
+            series: [{
+                name: '食材',
+                type: 'pie',
+                selectedMode: 'single',
+                radius: ['10%', '30%'],
+                clockWise: true,
+                label: {
+                    position: 'inner'
+                },
+                lavelLine: {
+                    show: false
+                },
+                data: [{
+                    value: 40,
+                    name: '米饭'
+                }, {
+                    value: 20,
+                    name: '土豆'
+                }, {
+                    value: 20,
+                    name: '红烧肉',
+                }, {
+                    value: 20,
+                    name: '水',
+                }]
+            }, {
+                name: '营养成分',
+                type: 'pie',
+                selectedMode: 'single',
+                radius: ['40%', '60%'],
+                data: [{
+                    value: 20,
+                    name: '碳水化合物'
+                }, {
+                    value: 20,
+                    name: '其他'
+                }, {
+                    value: 10,
+                    name: '维生素'
+                }, {
+                    value: 10,
+                    name: '碳物质'
+                }, {
+                    value: 10,
+                    name: '脂肪'
+                }, {
+                    value: 10,
+                    name: '蛋白质'
+                }, {
+                    value: 20,
+                    name: '水'
+                }]
+            }]
+        };
+        myChat.setOption(option)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq1 {
+            width: 800px;
+            height: 600px;
+            background-color: rgb(130, 252, 252);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq1"></div>
+    <script type="text/javascript">
+        var myChat = echarts.init(document.getElementById("crq1"));
+        var data = [];
+        var data2 = [];
+        for (let i = 0; i < 5; i++) {
+            data.push(Math.round(Math.random() * 500));
+            data2.push(Math.round(Math.random() * 500));
+        }
+        var option = {
+            title: {
+                text: '历代招生数量分布图',
+                subtext: '2021年',
+                textStyle: {
+                    color: 'orange',
+                    fontSize: 24
+                },
+                left: '0%'
+            },
+            legend: {
+                data: [{
+                    name: "销量",
+                    icon: 'circle',
+                    textStyle: {
+                        color: 'red'
+                    }
+                }, {
+                    name: '数量',
+                    icon: 'triangle',
+                }],
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                }
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                x: 'right',
+                y: 'center',
+                feature: {
+                    saveAsImage: {},
+                    dataView: {},
+                    restore: {},
+                    dataZoom: {}
+                }
+            },
+            xAxis: {},
+            yAxis: {
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            },
+            series: [{
+                name: '销量',
+                type: 'bar',
+                stack: '数据',
+                showBackground: true,
+                backgroundStyle: {
+                    color: "#245"
+                },
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'blue',
+                    barBorderRadius: [0, 0, 0, 0],
+                },
+                data: data
+            }, {
+                name: '数量',
+                type: 'bar',
+                stack: '数据',
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'green',
+                    barBorderRadius: [0, 0, 0, 0],
+                },
+                data: data2
+            }]
+        };
+        myChat.setOption(option);
+    </script>
+
+</body>
+
+</html>

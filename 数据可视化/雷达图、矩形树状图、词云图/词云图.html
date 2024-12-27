@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crq</title>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/echarts-wordcloud.min.js"></script>
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+            /* background-color: aquamarine; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById("crq"));
+        var option = {
+            backgroundColor: 'rgba(128,128,128,0.1)',
+            title: {
+                text: '课程统计',
+                x: 'center',
+                y: 15,
+                textStyle: {
+                    color: 'green',
+                    fontSize: 22,
+                }
+            },
+            tooltip: {
+                show: true,
+            },
+            series: [{
+                name: '课程统计',
+                type: 'wordCloud',
+                sizeRange: [15, 100],
+                size: ['80%', '80%'],
+                textRotation: [0, 45, 90, 135, -45, -90],
+                textPadding: 3,
+                autoSize: {
+                    enable: true,
+                    minSize: 5
+                },
+                textStyle: {
+                    normal: {
+                        color: function() {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 255),
+                                Math.round(Math.random() * 255),
+                                Math.round(Math.random() * 255),
+                            ].join(',') + ')'
+                        }
+                    },
+                    emphasis: {
+                        shadowBlur: 26,
+                        color: '#333',
+                        shadowColor: '#ccc',
+                        fontSize: 20
+                    }
+                },
+                data: [{
+                        name: 'spark编程',
+                        value: 96
+                    }, {
+                        name: '习近平思想',
+                        value: 24
+                    }, {
+                        name: '计算机文化基础',
+                        value: 64
+                    }, {
+                        name: 'Web数据可视化',
+                        value: 64
+                    }, {
+                        name: '数据标注',
+                        value: 64
+                    }, {
+                        name: '机器学习',
+                        value: 64
+                    }, {
+                        name: '形式与政策',
+                        value: 8
+                    }, {
+                        name: 'python爬虫',
+                        value: 85
+                    }, {
+                        name: '数据清洗',
+                        value: 68
+                    }, {
+                        name: 'Web前端+vue',
+                        value: 85
+                    }, {
+                        name: 'nosql',
+                        value: 107
+                    }, {
+                        name: 'Hive',
+                        value: 68
+                    }, {
+                        name: '毛泽东思想概论',
+                        value: 24
+                    }, {
+                        name: '创新创业',
+                        value: 24
+                    }, {
+                        name: '数学',
+                        value: 34
+                    }, {
+                        name: '英语',
+                        value: 34
+                    }, {
+                        name: '汽车维修',
+                        value: 17
+                    }, {
+                        name: '体育',
+                        value: 34
+                    }, {
+                        name: 'hadoop搭建',
+                        value: 85
+                    }, {
+                        name: '出国通用英语',
+                        value: 17
+                    }
+
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

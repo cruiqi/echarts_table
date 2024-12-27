@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+</head>
+
+<body>
+    <div id="main1" style="width:600px;height:400px"></div>
+    <div id="main2" style="width:600px;height:400px"></div>
+    <script>
+        var traffic1 = echarts.init(document.getElementById("main1"))
+        var traffic2 = echarts.init(document.getElementById("main2"))
+        var data = [];
+        var now = new Date(2020, 5, 2, 24, 60, 60)
+        var oneDay = 24 * 600 * 600;
+
+        function randomData() {
+            now = new Date(+now + oneDay);
+            value = Math.random() * 80 + 20;
+            return {
+                name: now.toLocaleString('chinese', {
+                    hour12: false
+                }),
+                value: [now.toLocaleString('chinese', {
+                        hour12: false
+                    }),
+                    Math.round(value)
+                ]
+            }
+        }
+        for (var i = 1; i < 300; i++) {
+            data.push(randomData())
+        }
+        var option1 = {
+            color: ['DarkGreen', 'red', 'LimeGreen', 'blue', 'Purple', 'GreenYellow', 'DarkTurquoise'],
+            title: {
+                text: '在此图表中滚动鼠标',
+                left: 110,
+                top: 12
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function(params) {
+                    params = params[0];
+                    var date = new Date(params.name);
+                    return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ':' + params.value[1];
+                },
+                axisPointer: {
+                    animation: false
+                }
+            },
+            xAxis: {
+                type: 'time',
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                splitLine: {
+                    show: false
+                }
+            },
+            dataZoom: [{
+                type: 'inside',
+                show: true,
+                start: 20,
+                end: 70
+            }],
+            series: [{
+                name: '模拟数据',
+                type: 'line',
+                data: data
+            }]
+        };
+        var option2 = {
+            color: ['blue', 'LimeGreen', 'red', 'DarkGreen', 'Purple', 'GreenYellow', 'DarkTurquoise'],
+            title: {
+                text: '此图标与上面同步变化',
+                left: 110,
+                top: 12
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function(params) {
+                    params = params[0];
+                    var date = new Date(params.name);
+                    return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ':' + params.value[1];
+                },
+                axisPointer: {
+                    animation: false
+                }
+            },
+            xAxis: {
+                type: 'time',
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                splitLine: {
+                    show: false
+                }
+            },
+            dataZoom: [{
+                type: 'inside',
+                show: true,
+                start: 0,
+                end: 100
+            }],
+            series: [{
+                name: '模拟数据',
+                type: 'bar',
+                data: data
+            }]
+        };
+        traffic1.setOption(option1)
+        traffic2.setOption(option2)
+        traffic1.on('datazoom', function(params) {
+            console.log(params);
+            var startValue = traffic1.getModel().option.dataZoom[0].startValue;
+            var endValue = traffic1.getModel().option.dataZoom[0].endValue;
+            var startPercent = traffic1.getModel().option.dataZoom[0].start;
+            var endPercent = traffic1.getModel().option.dataZoom[0].end;
+            console.log(startValue, endValue, startPercent, endPercent);
+            option2.dataZoom[0].start = startPercent;
+            option2.dataZoom[0].end = endPercent;
+            traffic2.setOption(option2)
+
+        })
+    </script>
+</body>
+
+</html>

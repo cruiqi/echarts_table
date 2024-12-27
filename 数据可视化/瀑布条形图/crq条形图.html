@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq1 {
+            width: 800px;
+            height: 600px;
+            background-color: rgb(130, 252, 252);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq1"></div>
+    <script type="text/javascript">
+        var myChat = echarts.init(document.getElementById("crq1"))
+        var option = {
+            title: {
+                text: '历代招生数量分布图',
+                textStyle: {
+                    color: 'orange',
+                    fontSize: '500px'
+                },
+                left: '0%'
+            },
+            legend: {
+                data: [{
+                    name: "java",
+                    icon: 'circle',
+                }, {
+                    name: 'web',
+                    icon: 'rect',
+                }, {
+                    name: 'c/c++',
+                    icon: 'roundRect',
+                }, {
+                    name: 'python',
+                    icon: 'triangle',
+                }],
+                // bottom: '1%'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                }
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {},
+                    dataView: {},
+                    restore: {},
+                    dataZoom: {}
+                }
+            },
+            xAxis: {
+                // data: ['2017年', '2018年', '2019年', '2020年']
+            },
+            yAxis: {
+                data: ['2017年', '2018年', '2019年', '2020年']
+            },
+            series: [{
+                name: 'java',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'blue',
+                    barBorderRadius: [10, 10, 0, 0],
+                },
+                data: [650, 588, 720, 703]
+            }, {
+                name: 'web',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'green',
+                    barBorderRadius: [10, 10, 0, 0],
+                },
+                data: [570, 820, 998, 409]
+            }, {
+                name: 'python',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'pink',
+                    barBorderRadius: [10, 10, 0, 0],
+                },
+                data: [768, 629, 529, 209]
+            }, {
+                name: 'c/c++',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: 'insideTop',
+                    color: '#eee',
+                },
+                itemStyle: {
+                    color: 'red',
+                    barBorderRadius: [10, 10, 0, 0],
+                },
+                data: [356, 763, 685, 358]
+            }]
+        }
+        myChat.setOption(option);
+    </script>
+
+</body>
+
+</html>

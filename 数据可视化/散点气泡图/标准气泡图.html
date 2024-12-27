@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>242crq</title>
+    <script src="../js/echarts.js"></script>
+    <style>
+        #crq {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="crq"></div>
+    <script type="text/javascript">
+        var myChat = echarts.init(document.getElementById("crq"))
+
+        function random() {
+            var r = Math.round(Math.random() * 90); //生成0到90之间的数
+            return (r * (r % 2 == 0 ? 1 : -1)); //如果是偶数则返回正数，否则返回负数
+        }
+
+        //生成一个包含100个元素的数组，每个元素是一个包含3个随机数的数组。这3个随机数分别用于表示气泡图中的x、y坐标和气泡的大小。
+        function randomDataArray() {
+            var crq = [];
+            var length = 100;
+            while (length--) {
+                crq.push([random(), random(), Math.abs(random()), ]);
+            }
+            return crq;
+        }
+        var option = {
+            color: ['red', 'green'],
+            title: {
+                x: 40,
+                text: '标准气泡图示例',
+                subtext: '随机生成'
+            },
+            tooltip: {
+                trigger: 'axis',
+                showDelay: 0,
+                axisPointer: {
+                    show: true,
+                    type: 'cross',
+                    lineStyle: {
+                        type: 'dashed',
+                        width: 1
+                    }
+                }
+            },
+            legend: {
+                x: 240,
+                data: ['随机1', '随机2']
+            },
+            xAxis: [{
+                type: 'value',
+                splitNumber: 4,
+                scale: true
+            }],
+            yAxis: [{
+                type: 'value',
+                splitNumber: 4,
+                scale: true
+            }],
+            series: [{
+                name: '随机1',
+                type: 'scatter',
+                symbol: 'circle',
+                symbolSize: function(value) {
+                    return Math.round(value[2] / 5);
+                },
+                data: randomDataArray()
+            }, {
+                name: '随机2',
+                type: 'scatter',
+                symbol: 'circle',
+                symbolSize: function(value) {
+                    return Math.round(value[2] / 5);
+                },
+                data: randomDataArray()
+            }]
+        }
+        myChat.setOption(option);
+    </script>
+
+</body>
+
+</html>
